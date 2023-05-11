@@ -8,15 +8,21 @@ LiDAR API Documentation and Examples
 
 This description covers all possibilities to work with the following sensors. 
 
-- [multiScan100](https://www.sick.com/de/en/lidar-sensors/3d-lidar-sensors/multiscan100/c/g574914)  <img style="right;"  width="45" src="docs/img/multiScan.png"/> 
+- [multiScan100](https://www.sick.com/de/en/lidar-sensors/3d-lidar-sensors/multiscan100/c/g574914)  <img style="right;"  width="45" src="docs/img/multiScan.png"/>
+
+- picoScan150
 
 ... you have your sensor on hand: [Kick start here](#getting-started-to-work-with-a-sensor) :rocket:
 
-# Table of content
+<br/>
+<br/>
 
+# Table of content
 
 - [Table of content](#table-of-content)
 - [Introduction](#introduction)
+  - [Read or write sensor parameters](#1-read-or-write-sensor-parameters)
+  - [Receive event-driven measurement data streaming](#2-receive-event-driven-measurement-data-streaming)
 - [General information](#general-information)
   - [Drivers and SDKs](#drivers-and-sdks)
   - [Examples](#examples)
@@ -29,30 +35,16 @@ This description covers all possibilities to work with the following sensors.
   - [:two: Decide how you want to work with the device](#two-decide-how-you-want-to-work-with-the-device)
 - [FAQ \& Glossary](#faq--glossary)
 
+<br/>
+<br/>
 
 # Introduction
 
 The LiDAR API documentation differentiates between two communication concepts. For both cases there are multiple ways to work with the sensor.
 
-**1. Receive event-driven measurement data streaming**
-  - [Compact](docs/documentation-msgpack-compact.md)
-  - [MSGPACK](docs/documentation-msgpack-compact.md)
-  - [WebSocket](docs/documentation-websocket.md)
-
-Communication concept of measurement data streaming:
-
-```mermaid
-sequenceDiagram
-    client->>sensor: enable measurement data streaming
-    sensor-->>client: acknowledge measurement data streaming
-    client->>sensor: measurement data packet [0]
-    client->>sensor: measurement data packet [1]
-    client->>sensor: measurement data packet [...]
-```
-<br/>
 <br/>
 
-**2. Read or write sensor parameters**
+## 1. Read or write sensor parameters
   - [REST](docs/documentation-rest.md)
   - [CoLa A](docs/documentation-cola.md)
   - [CoLa B](docs/documentation-cola.md)
@@ -67,9 +59,29 @@ sequenceDiagram
     sensor-->>client: acknowledge parameter2
     client->>sensor: ...
 ```
+<br/>
+
+## 2. Receive event-driven measurement data streaming
+
+  - [Compact](docs/documentation-msgpack-compact.md)
+  - [MSGPACK](docs/documentation-msgpack-compact.md)
+  - [WebSocket](docs/documentation-websocket.md)
+
+Communication concept of measurement data streaming:
+
+```mermaid
+sequenceDiagram
+    client->>sensor: enable measurement data streaming
+    sensor-->>client: acknowledge measurement data streaming
+    client->>sensor: measurement data packet [0]
+    client->>sensor: measurement data packet [1]
+    client->>sensor: measurement data packet [...]
+```
+
+<br/>
+<br/>
 
 # General information
-
 
 ## Drivers and SDKs
 
@@ -83,12 +95,15 @@ For complete drivers instead of single telegrams, the following options are avai
 - [C++ drivers](https://github.com/SICKAG/sick_scan_xd)
 
 ## Examples
-All available examples can be found [here](examples/).
 
+All available examples can be found [here](examples/).
 
 ## Default IP address
 
 The default IP address for the sensors (if not specified different is `192.168.0.1`)
+
+<br/>
+<br/>
 
 # Measurement Data Streaming - Comparison and choice
 
