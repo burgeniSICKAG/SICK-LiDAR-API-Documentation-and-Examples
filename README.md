@@ -3,7 +3,7 @@
 LiDAR API Documentation and Examples
 ---
 
-![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `This document is on DRAFT stage!` ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)
+![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `This document is on Draft stage!` ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)
 
 
 This description covers all possibilities to work with the following sensors. 
