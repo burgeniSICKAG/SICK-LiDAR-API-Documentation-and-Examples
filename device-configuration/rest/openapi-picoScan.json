@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "picoScan REST API",
+    "title": "OpenAPI_Collection_picoScan",
     "description": "",
     "contact": {},
     "version": "1.0"
@@ -41,30 +41,6 @@
         "security": []
       }
     },
-    "/SCdevicestate": {
-      "get": {
-        "tags": [
-          "Status information"
-        ],
-        "summary": "read SCdevicestate",
-        "description": "",
-        "operationId": "readSCdevicestate",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
     "/LocationName": {
       "get": {
         "tags": [
@@ -79,7 +55,7 @@
             "description": "",
             "headers": {},
             "content": {
-              "application/json": {
+              "text/plain": {
                 "schema": {}
               }
             }
@@ -108,7 +84,7 @@
                   {
                     "example": {
                       "data": {
-                        "LocationName": "SN 22400001"
+                        "LocationName": "SN 22400021"
                       }
                     }
                   }
@@ -116,7 +92,7 @@
               },
               "example": {
                 "data": {
-                  "LocationName": "SN 22400001"
+                  "LocationName": "SN 22400021"
                 }
               }
             }
@@ -162,10 +138,85 @@
         "security": []
       }
     },
+    "/DeviceType": {
+      "get": {
+        "tags": [
+          "Device information"
+        ],
+        "summary": "read DeviceType",
+        "description": "",
+        "operationId": "readDeviceType",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/FindMe": {
+      "post": {
+        "tags": [
+          "Device information"
+        ],
+        "summary": "write FindMe",
+        "description": "",
+        "operationId": "writeFindMe",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/writeFindMeRequest"
+                  },
+                  {
+                    "example": {
+                      "data": {
+                        "uiDuration": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "data": {
+                  "uiDuration": 0
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
     "/Run": {
       "post": {
         "tags": [
-          "Not defined"
+          "Other"
         ],
         "summary": "write Run",
         "description": "",
@@ -202,7 +253,7 @@
     "/SetAccessMode": {
       "post": {
         "tags": [
-          "Not defined"
+          "Other"
         ],
         "summary": "write SetAccessMode",
         "description": "",
@@ -255,7 +306,7 @@
     "/SetPassword": {
       "post": {
         "tags": [
-          "Not defined"
+          "Other"
         ],
         "summary": "write SetPassword",
         "description": "",
@@ -308,7 +359,7 @@
     "/CheckPassword": {
       "post": {
         "tags": [
-          "Not defined"
+          "Other"
         ],
         "summary": "write CheckPassword",
         "description": "",
@@ -358,34 +409,10 @@
         "security": []
       }
     },
-    "/ScanConfig": {
-      "get": {
-        "tags": [
-          "Profile"
-        ],
-        "summary": "read ScanConfig",
-        "description": "",
-        "operationId": "readScanConfig",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
     "/GetChallenge": {
       "post": {
         "tags": [
-          "Not defined"
+          "Other"
         ],
         "summary": "write GetChallenge",
         "description": "",
@@ -418,6 +445,236 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/LoadApplicationDefaults": {
+      "post": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "write LoadApplicationDefaults",
+        "description": "",
+        "operationId": "writeLoadApplicationDefaults",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/LastUsername": {
+      "get": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "read LastUsername",
+        "description": "",
+        "operationId": "readLastUsername",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/LastMaintenance": {
+      "get": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "read LastMaintenance",
+        "description": "",
+        "operationId": "readLastMaintenance",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/NextMaintenace": {
+      "get": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "read NextMaintenance",
+        "description": "",
+        "operationId": "readNextMaintenance",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/GoReadyCount": {
+      "get": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "read GoReadyCount",
+        "description": "",
+        "operationId": "readGoReadyCount",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/DeviceTime": {
+      "get": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "read DeviceTime",
+        "description": "",
+        "operationId": "readDeviceTime",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "post": {
+        "tags": [
+          "Other"
+        ],
+        "summary": "write DeviceTime",
+        "description": "",
+        "operationId": "writeDeviceTime",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/writeDeviceTimeRequest"
+                  },
+                  {
+                    "example": {
+                      "data": {
+                        "DeviceTime": 123456789
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "data": {
+                  "DeviceTime": 123456789
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/SCdevicestate": {
+      "get": {
+        "tags": [
+          "Status information"
+        ],
+        "summary": "read SCdevicestate",
+        "description": "",
+        "operationId": "readSCdevicestate",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
@@ -681,14 +938,14 @@
         "security": []
       }
     },
-    "/LoadApplicationDefaults": {
+    "/WriteEeprom": {
       "post": {
         "tags": [
-          "Not defined"
+          "Toolbar"
         ],
-        "summary": "write LoadApplicationDefaults",
+        "summary": "write SafePermanent",
         "description": "",
-        "operationId": "writeLoadApplicationDefaults",
+        "operationId": "writeSafePermanent",
         "parameters": [],
         "requestBody": {
           "description": "",
@@ -814,79 +1071,6 @@
         "security": []
       }
     },
-    "/LastUsername": {
-      "get": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "read LastUsername",
-        "description": "",
-        "operationId": "readLastUsername",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "write LastUsername",
-        "description": "",
-        "operationId": "writeLastUsername",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeLastUsernameRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "LastUsername": "1"
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "LastUsername": "1"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
     "/LastParaDate": {
       "get": {
         "tags": [
@@ -896,55 +1080,6 @@
         "description": "",
         "operationId": "readLastParaDate",
         "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "write LastParaDate",
-        "description": "",
-        "operationId": "writeLastParaDate",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeLastParaDateRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "LastParaDate": "13.01.2022"
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "LastParaDate": "13.01.2022"
-                }
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "",
@@ -982,14 +1117,136 @@
         },
         "deprecated": false,
         "security": []
-      },
+      }
+    },
+    "/PowerOnCnt": {
+      "get": {
+        "tags": [
+          "Operating information"
+        ],
+        "summary": "read PowerOnCnt",
+        "description": "",
+        "operationId": "readPowerOnCnt",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/DailyOpHours": {
+      "get": {
+        "tags": [
+          "Operating information"
+        ],
+        "summary": "read DailyOpHours",
+        "description": "",
+        "operationId": "readDailyOpHours",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/OpHours": {
+      "get": {
+        "tags": [
+          "Operating information"
+        ],
+        "summary": "read OpHours",
+        "description": "",
+        "operationId": "readOpHours",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/CurrentTempDev": {
+      "get": {
+        "tags": [
+          "Operating information"
+        ],
+        "summary": "read CurrentTempDev",
+        "description": "",
+        "operationId": "readCurrentTempDev",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/LSPdatetime": {
+      "get": {
+        "tags": [
+          "Operating information"
+        ],
+        "summary": "read LSPdatetime",
+        "description": "",
+        "operationId": "readLSPdatetime",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/LSPsetdatetime": {
       "post": {
         "tags": [
           "Operating information"
         ],
-        "summary": "write LastParaTime",
+        "summary": "write LSPsetdatetime",
         "description": "",
-        "operationId": "writeLastParaTime",
+        "operationId": "writeLSPsetdatetime",
         "parameters": [],
         "requestBody": {
           "description": "",
@@ -998,12 +1255,20 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/writeLastParaTimeRequest"
+                    "$ref": "#/components/schemas/writeLSPsetdatetimeRequest"
                   },
                   {
                     "example": {
                       "data": {
-                        "LastParaTime": "14:30"
+                        "DateTime": {
+                          "uiYear": 2023,
+                          "usiMonth": 6,
+                          "usiDay": 7,
+                          "usiHour": 10,
+                          "usiMinute": 52,
+                          "usiSec": 50,
+                          "udiUSec": 706000
+                        }
                       }
                     }
                   }
@@ -1011,228 +1276,15 @@
               },
               "example": {
                 "data": {
-                  "LastParaTime": "14:30"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/LastMaintenance": {
-      "get": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "read LastMaintenance",
-        "description": "",
-        "operationId": "readLastMaintenance",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "write LastMaintenace",
-        "description": "",
-        "operationId": "writeLastMaintenace",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeLastMaintenaceRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "LastMaintenace": "12.01.2022"
-                      }
-                    }
+                  "DateTime": {
+                    "uiYear": 2023,
+                    "usiMonth": 6,
+                    "usiDay": 7,
+                    "usiHour": 10,
+                    "usiMinute": 52,
+                    "usiSec": 50,
+                    "udiUSec": 706000
                   }
-                ]
-              },
-              "example": {
-                "data": {
-                  "LastMaintenace": "12.01.2022"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/NextMaintenace": {
-      "get": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "read NextMaintenance",
-        "description": "",
-        "operationId": "readNextMaintenance",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/NextMaintenance": {
-      "post": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "write NextMaintenace",
-        "description": "",
-        "operationId": "writeNextMaintenace",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeNextMaintenaceRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "LastMaintenace": "12.01.2024"
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "LastMaintenace": "12.01.2024"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/GoReadyCount": {
-      "get": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "read GoReadyCount",
-        "description": "",
-        "operationId": "readGoReadyCount",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "write GoReadyCount",
-        "description": "",
-        "operationId": "writeGoReadyCount",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeGoReadyCountRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "GoReadyCount": 3
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "GoReadyCount": 3
                 }
               }
             }
@@ -1824,322 +1876,6 @@
         "security": []
       }
     },
-    "/DeviceTime": {
-      "get": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "read DeviceTime",
-        "description": "",
-        "operationId": "readDeviceTime",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Not defined"
-        ],
-        "summary": "write DeviceTime",
-        "description": "",
-        "operationId": "writeDeviceTime",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeDeviceTimeRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "DeviceTime": 123456789
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "DeviceTime": 123456789
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/PowerOnCnt": {
-      "get": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "read PowerOnCnt",
-        "description": "",
-        "operationId": "readPowerOnCnt",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "write PowerOnCnt",
-        "description": "",
-        "operationId": "writePowerOnCnt",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writePowerOnCntRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "PowerOnCnt": 12
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "PowerOnCnt": 12
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/DailyOpHours": {
-      "get": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "read DailyOpHours",
-        "description": "",
-        "operationId": "readDailyOpHours",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "write DailyOpHours",
-        "description": "",
-        "operationId": "writeDailyOpHours",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeDailyOpHoursRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "DailyOpHours": 12
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "DailyOpHours": 12
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/OpHours": {
-      "get": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "read OpHours",
-        "description": "",
-        "operationId": "readOpHours",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/DeviceType": {
-      "get": {
-        "tags": [
-          "Device information"
-        ],
-        "summary": "read DeviceType",
-        "description": "",
-        "operationId": "readDeviceType",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Device information"
-        ],
-        "summary": "write DeviceType",
-        "description": "",
-        "operationId": "writeDeviceType",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeDeviceTypeRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "DeviceType": "picoScan1xx1"
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "DeviceType": "picoScan1xx1"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
     "/ScanDataEthSettings": {
       "get": {
         "tags": [
@@ -2347,7 +2083,7 @@
                   {
                     "example": {
                       "data": {
-                        "ScanDataFormat": 2
+                        "ScanDataFormat": 1
                       }
                     }
                   }
@@ -2355,46 +2091,9 @@
               },
               "example": {
                 "data": {
-                  "ScanDataFormat": 2
+                  "ScanDataFormat": 1
                 }
               }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/WriteEeprom": {
-      "post": {
-        "tags": [
-          "Toolbar"
-        ],
-        "summary": "write SafePermanent",
-        "description": "",
-        "operationId": "writeSafePermanent",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {}
-              },
-              "example": {}
             }
           },
           "required": true
@@ -3167,57 +2866,6 @@
         "security": []
       }
     },
-    "/FindMe": {
-      "post": {
-        "tags": [
-          "Device information"
-        ],
-        "summary": "write FindMe",
-        "description": "",
-        "operationId": "writeFindMe",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeFindMeRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "uiDuration": 0
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "uiDuration": 0
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
     "/MCSenseLevel": {
       "get": {
         "tags": [
@@ -3276,6 +2924,103 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/FREchoFilter": {
+      "get": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "read FREchoFilter",
+        "description": "",
+        "operationId": "readFREchoFilter",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "post": {
+        "tags": [
+          "Filter"
+        ],
+        "summary": "write FREchoFilter",
+        "description": "",
+        "operationId": "writeFREchoFilter",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/writeFREchoFilterRequest"
+                  },
+                  {
+                    "example": {
+                      "data": {
+                        "FREchoFilter": 1
+                      }
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "data": {
+                  "FREchoFilter": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/ScanConfig": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "read ScanConfig",
+        "description": "",
+        "operationId": "readScanConfig",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
@@ -3489,103 +3234,6 @@
               "example": {
                 "data": {
                   "AngularResolution": 2
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/CurrentTempDev": {
-      "get": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "read CurrentTempDev",
-        "description": "",
-        "operationId": "readCurrentTempDev",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/FREchoFilter": {
-      "get": {
-        "tags": [
-          "Filter"
-        ],
-        "summary": "read FREchoFilter",
-        "description": "",
-        "operationId": "readFREchoFilter",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      },
-      "post": {
-        "tags": [
-          "Filter"
-        ],
-        "summary": "write FREchoFilter",
-        "description": "",
-        "operationId": "writeFREchoFilter",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeFREchoFilterRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "FREchoFilter": 1
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "FREchoFilter": 1
                 }
               }
             }
@@ -3908,97 +3556,6 @@
         "deprecated": false,
         "security": []
       }
-    },
-    "/LSPdatetime": {
-      "get": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "read LSPdatetime",
-        "description": "",
-        "operationId": "readLSPdatetime",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
-    },
-    "/LSPsetdatetime": {
-      "post": {
-        "tags": [
-          "Operating information"
-        ],
-        "summary": "write LSPsetdatetime",
-        "description": "",
-        "operationId": "writeLSPsetdatetime",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/writeLSPsetdatetimeRequest"
-                  },
-                  {
-                    "example": {
-                      "data": {
-                        "DateTime": {
-                          "uiYear": 2023,
-                          "usiMonth": 6,
-                          "usiDay": 7,
-                          "usiHour": 10,
-                          "usiMinute": 52,
-                          "usiSec": 50,
-                          "udiUSec": 706000
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "example": {
-                "data": {
-                  "DateTime": {
-                    "uiYear": 2023,
-                    "usiMonth": 6,
-                    "usiDay": 7,
-                    "usiHour": 10,
-                    "usiMinute": 52,
-                    "usiSec": 50,
-                    "udiUSec": 706000
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "security": []
-      }
     }
   },
   "components": {
@@ -4016,7 +3573,24 @@
         },
         "example": {
           "data": {
-            "LocationName": "SN 22400001"
+            "LocationName": "SN 22400021"
+          }
+        }
+      },
+      "writeFindMeRequest": {
+        "title": "writeFindMeRequest",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          }
+        },
+        "example": {
+          "data": {
+            "uiDuration": 0
           }
         }
       },
@@ -4091,6 +3665,23 @@
           }
         }
       },
+      "writeDeviceTimeRequest": {
+        "title": "writeDeviceTimeRequest",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          }
+        },
+        "example": {
+          "data": {
+            "DeviceTime": 123456789
+          }
+        }
+      },
       "writeSetUserLevelRequest": {
         "title": "writeSetUserLevelRequest",
         "required": [
@@ -4161,8 +3752,8 @@
           }
         }
       },
-      "writeLastUsernameRequest": {
-        "title": "writeLastUsernameRequest",
+      "writeLSPsetdatetimeRequest": {
+        "title": "writeLSPsetdatetimeRequest",
         "required": [
           "data"
         ],
@@ -4174,92 +3765,15 @@
         },
         "example": {
           "data": {
-            "LastUsername": "1"
-          }
-        }
-      },
-      "writeLastParaDateRequest": {
-        "title": "writeLastParaDateRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "LastParaDate": "13.01.2022"
-          }
-        }
-      },
-      "writeLastParaTimeRequest": {
-        "title": "writeLastParaTimeRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "LastParaTime": "14:30"
-          }
-        }
-      },
-      "writeLastMaintenaceRequest": {
-        "title": "writeLastMaintenaceRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "LastMaintenace": "12.01.2022"
-          }
-        }
-      },
-      "writeNextMaintenaceRequest": {
-        "title": "writeNextMaintenaceRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "LastMaintenace": "12.01.2024"
-          }
-        }
-      },
-      "writeGoReadyCountRequest": {
-        "title": "writeGoReadyCountRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "GoReadyCount": 3
+            "DateTime": {
+              "uiYear": 2023,
+              "usiMonth": 6,
+              "usiDay": 7,
+              "usiHour": 10,
+              "usiMinute": 52,
+              "usiSec": 50,
+              "udiUSec": 706000
+            }
           }
         }
       },
@@ -4404,74 +3918,6 @@
           }
         }
       },
-      "writeDeviceTimeRequest": {
-        "title": "writeDeviceTimeRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "DeviceTime": 123456789
-          }
-        }
-      },
-      "writePowerOnCntRequest": {
-        "title": "writePowerOnCntRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "PowerOnCnt": 12
-          }
-        }
-      },
-      "writeDailyOpHoursRequest": {
-        "title": "writeDailyOpHoursRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "DailyOpHours": 12
-          }
-        }
-      },
-      "writeDeviceTypeRequest": {
-        "title": "writeDeviceTypeRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "DeviceType": "picoScan1xx1"
-          }
-        }
-      },
       "writeScanDataEthSettingsRequest": {
         "title": "writeScanDataEthSettingsRequest",
         "required": [
@@ -4528,7 +3974,7 @@
         },
         "example": {
           "data": {
-            "ScanDataFormat": 2
+            "ScanDataFormat": 1
           }
         }
       },
@@ -4803,23 +4249,6 @@
           }
         }
       },
-      "writeFindMeRequest": {
-        "title": "writeFindMeRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "uiDuration": 0
-          }
-        }
-      },
       "writeMCSenseLevelRequest": {
         "title": "writeMCSenseLevelRequest",
         "required": [
@@ -4834,6 +4263,23 @@
         "example": {
           "data": {
             "MCSenseLevel": 0
+          }
+        }
+      },
+      "writeFREchoFilterRequest": {
+        "title": "writeFREchoFilterRequest",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          }
+        },
+        "example": {
+          "data": {
+            "FREchoFilter": 1
           }
         }
       },
@@ -4885,23 +4331,6 @@
         "example": {
           "data": {
             "AngularResolution": 2
-          }
-        }
-      },
-      "writeFREchoFilterRequest": {
-        "title": "writeFREchoFilterRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "FREchoFilter": 1
           }
         }
       },
@@ -4977,32 +4406,69 @@
             "TSCTCupdatetime": 600
           }
         }
-      },
-      "writeLSPsetdatetimeRequest": {
-        "title": "writeLSPsetdatetimeRequest",
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object"
-          }
-        },
-        "example": {
-          "data": {
-            "DateTime": {
-              "uiYear": 2023,
-              "usiMonth": 6,
-              "usiDay": 7,
-              "usiHour": 10,
-              "usiMinute": 52,
-              "usiSec": 50,
-              "udiUSec": 706000
-            }
-          }
-        }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Device information",
+      "description": ""
+    },
+    {
+      "name": "Other",
+      "description": ""
+    },
+    {
+      "name": "Status information",
+      "description": ""
+    },
+    {
+      "name": "Toolbar",
+      "description": ""
+    },
+    {
+      "name": "Messages",
+      "description": ""
+    },
+    {
+      "name": "Operating information",
+      "description": ""
+    },
+    {
+      "name": "Ethernet",
+      "description": ""
+    },
+    {
+      "name": "Legacy protocols",
+      "description": ""
+    },
+    {
+      "name": "Web server settings",
+      "description": ""
+    },
+    {
+      "name": "Measurement data output",
+      "description": ""
+    },
+    {
+      "name": "Input and output",
+      "description": ""
+    },
+    {
+      "name": "LED",
+      "description": ""
+    },
+    {
+      "name": "Filter",
+      "description": ""
+    },
+    {
+      "name": "Profile",
+      "description": ""
+    },
+    {
+      "name": "Date and system time",
+      "description": ""
+    }
+  ]
 }
