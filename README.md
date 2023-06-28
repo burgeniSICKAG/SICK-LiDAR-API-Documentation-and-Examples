@@ -839,30 +839,60 @@ cpp code
 </br>
 
 ## COMPACT Format
-Below you will find a short introduction. You can find more information in this [document](https://www.sick.com/8028133).
+Below you will find a short introduction. You can find more information in this [Data format description](https://www.sick.com/8028133).
 
+</br>
 
-- *works via UDP*
-- *more information will follow*
+### General
+
+The COMPACT format offers the advantage that the measurement data is transferred as compactly as possible. It is not a self-writing format (MSGPACK is self-writing). The data is merely strung together, which means that only a very low bandwidth is required. However, the structure of the transmitted data packet must be known at the receiver.
+
+</br>
+
+### Framing
+
+The following table shows the framing of COMPACT format. The feader has an fixed size of 32 bytes.
+
+|Header     |ScanSegment 1    |Checksum    |
+|-----------|-----------------|------------|
+
+</br>
+
+The header is structured as follows.
+
+|Name              |Size     |Type    |Description                                                                                                                                                  |
+|------------------|-------- |------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|startofFrame      |4 bytes  |uint32  |Four < STX > characters (hex code 0x02): \x2\x2\x2\x2                                                                                                          |
+|commandId         |4 bytes  |uint32  |Type of the transmitted telegram. To transmit primary data, the commandId is 1.                                                                              |
+|telegramCounter   |8 bytes  |uint64  |Counts all telegrams sent since the device was switched on. The counter starts at 1.                                                                         |
+|timeStampTransmit |8 bytes  |uint64  |Sensor system time in µs since 1.1.1970 00:00 in UTC. If a time server is being used, the relevant set time will be used.                                    |
+|telegramVersion   |4 bytes  |uint32  |Version of the telegram with the commandId used. For the telegram for serialization of primary data (commandId 1), only telegramVersion 3 is currently used. |
+|sizeMoudule0      |4 bytes  |uint32  |Size of the first module to be read.                                                                                                                         |
 
 </br>
 </br>
 
 ## MSGPACK Format
-Below you will find a short introduction. You can find more information in this [document](https://www.sick.com/8028133).
-
-- *works via UDP*
-- *more information will follow*
+Below you will find a short introduction. You can find more information in this [Data format description](https://www.sick.com/8028133).
 
 </br>
 
-**General Intro**
+### General
 
 MSGPACK (MSGPACK) is a binary data serialization format that is designed to be more efficient and COMPACT than [JSON](https://www.json.org/json-en.html).
 
 One of the main advantages of MSGPACK is its COMPACT binary representation, which can significantly reduce the size of data when compared to JSON. This makes it well-suited for use cases where bandwidth or storage space is limited, such as in embedded systems or mobile devices.
 
 MSGPACK also supports a wide range of data types, including integers, floats, strings, arrays, and maps. This allows it to handle complex data structures with ease. MSGPACK is that it is language-independent, which means that you can use it to communicate between different programming languages. It has implementations for many programming languages like C, C++, C#, D, Go, Java, Lua, Perl, PHP, Python, Ruby, Rust, Scala, Shell, Swift and more.
+
+</br>
+
+### Framing
+
+The following table shows the framing of MSGPACK format.
+
+|\x2\x2\x2\x2  |Size of MSGPACK buffer in bytes |MSGPACK buffer |CRC32  |
+|--------------|--------------------------------|---------------|-------|
 
 </br>
 
